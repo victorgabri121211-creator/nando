@@ -78,7 +78,7 @@ $bonusAfiliadoMensagens = isset($bonus_afiliado_mensagens) ? (int)$bonus_afiliad
     <div class="app-shell">
         <aside id="sidebar" class="sidebar">
             <div class="sidebar-brand">
-                <img src="/assets/logo.png" alt="Nuvem Cloud">
+                <img src="/assets/logo-cloud.png" alt="Nuvem Cloud">
                 <p>Infraestrutura moderna de disparos</p>
             </div>
 
