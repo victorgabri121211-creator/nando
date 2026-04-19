@@ -308,12 +308,14 @@ if (isset($link_indicacao) && !empty($link_indicacao)) {
             </main>
 
             <footer class="footer">
-                <span class="footer-signature">
-                    FEITO POR
-                    <a class="neon-link" href="https://discord.gg/3XAsBetXE" target="_blank" rel="noopener noreferrer">
-                        DASORTE <i class="fas fa-up-right-from-square hint-icon" aria-hidden="true"></i>
+                <p class="footer-main">Nuvem Cloud • 2026 • Todos os direitos reservados.</p>
+                <p class="footer-credit">
+                    Feito por
+                    <a class="footer-creator-hint" href="https://discord.gg/3XAsBetXE" target="_blank" rel="noopener noreferrer">
+                        <span class="neon-dasorte">DASORTE</span>
+                        <i class="fas fa-up-right-from-square" aria-hidden="true"></i>
                     </a>
-                </span>
+                </p>
             </footer>
         </section>
     </div>
