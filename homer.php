@@ -86,6 +86,9 @@ $bonusAfiliadoMensagens = isset($bonus_afiliado_mensagens) ? (int)$bonus_afiliad
                 <a href="#" class="tab-link active" data-tab="aba-dashboard" data-title="Dashboard" onclick="mudarAba(event, 'aba-dashboard')">
                     <i class="fas fa-chart-line"></i> Dashboard
                 </a>
+                <a href="#" class="tab-link" data-tab="aba-notificacoes" data-title="Notificações" onclick="mudarAba(event, 'aba-notificacoes')">
+                    <i class="fas fa-bell"></i> Notificações
+                </a>
                 <a href="#" class="tab-link" data-tab="aba-afiliados" data-title="Afiliados" onclick="mudarAba(event, 'aba-afiliados')">
                     <i class="fas fa-user-group"></i> Afiliados
                 </a>
@@ -175,6 +178,50 @@ $bonusAfiliadoMensagens = isset($bonus_afiliado_mensagens) ? (int)$bonus_afiliad
                                     <p class="stat-value" id="display-bots">0</p>
                                 </div>
                             </div>
+                        </article>
+                    </div>
+                </section>
+
+                <section id="aba-notificacoes" class="tab-content">
+                    <div class="main-grid">
+                        <article class="form-card">
+                            <h3 style="margin: 0 0 12px;"><i class="fas fa-bell"></i> Atualizações importantes</h3>
+                            <p class="u-muted" style="margin-bottom: 12px;">Resumo das informações da sua conta e do programa de afiliados.</p>
+
+                            <div style="display: grid; gap: 10px;">
+                                <div class="glass-card">
+                                    <p class="stat-title">Programa de afiliados</p>
+                                    <p class="u-muted">Cada depósito confirmado de um indicado gera <strong style="color:#93c5fd;">25% de retorno</strong> para você.</p>
+                                </div>
+                                <div class="glass-card">
+                                    <p class="stat-title">Conversão automática</p>
+                                    <p class="u-muted">O bônus recebido é convertido em mensagens para disparo com base de <strong style="color:#93c5fd;">R$ 0,02 por mensagem</strong>.</p>
+                                </div>
+                                <div class="glass-card">
+                                    <p class="stat-title">Seu status atual</p>
+                                    <div class="u-flex" style="justify-content: space-between; margin-bottom: 6px;">
+                                        <span class="u-muted">Indicados</span>
+                                        <strong><?php echo number_format($afiliadosIndicados, 0, ',', '.'); ?></strong>
+                                    </div>
+                                    <div class="u-flex" style="justify-content: space-between; margin-bottom: 6px;">
+                                        <span class="u-muted">Bônus acumulado (saldo)</span>
+                                        <strong>R$ <?php echo number_format($bonusAfiliadoSaldo, 2, ',', '.'); ?></strong>
+                                    </div>
+                                    <div class="u-flex" style="justify-content: space-between;">
+                                        <span class="u-muted">Bônus convertido em envios</span>
+                                        <strong style="color:#60a5fa;"><?php echo number_format($bonusAfiliadoMensagens, 0, ',', '.'); ?></strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="form-card">
+                            <h3 style="margin: 0 0 12px;"><i class="fa-brands fa-whatsapp"></i> Suporte</h3>
+                            <p class="u-muted" style="margin-bottom: 14px;">Canal oficial para dúvidas, orientações e acompanhamento de ocorrências.</p>
+                            <a href="https://chat.whatsapp.com/IYA1NqFGsNw8QFZ4P8cQJl?mode=gi_t" target="_blank" rel="noopener noreferrer" class="btn-primary" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none;">
+                                <i class="fa-brands fa-whatsapp"></i> Abrir canal de suporte
+                            </a>
+                            <p class="u-muted" style="margin-top: 12px; font-size: 12px;">Atendimento e avisos importantes em um único lugar.</p>
                         </article>
                     </div>
                 </section>
@@ -420,6 +467,7 @@ $bonusAfiliadoMensagens = isset($bonus_afiliado_mensagens) ? (int)$bonus_afiliad
         let loopPix;
         const titulosAba = {
             'aba-dashboard': 'Dashboard',
+            'aba-notificacoes': 'Notificações',
             'aba-afiliados': 'Afiliados',
             'aba-disparo': 'Novo Disparo',
             'aba-historico': 'Histórico',
