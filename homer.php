@@ -61,7 +61,7 @@ if (isset($link_indicacao) && !empty($link_indicacao)) {
     <div class="app-shell">
         <aside id="sidebar" class="sidebar">
             <div class="sidebar-brand">
-                <img src="/assets/nuvem-logo.svg" alt="Nuvem Cloud">
+                <img src="/assets/logo.png" alt="Nuvem Cloud">
                 <p>Infraestrutura moderna de disparos</p>
             </div>
 

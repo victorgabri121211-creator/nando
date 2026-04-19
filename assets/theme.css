@@ -1,14 +1,14 @@
 :root {
-    --bg-main: #030712;
-    --bg-soft: #0b1222;
-    --bg-card: rgba(11, 18, 34, 0.68);
-    --bg-card-strong: rgba(10, 17, 31, 0.9);
+    --bg-main: #010101;
+    --bg-soft: #070707;
+    --bg-card: rgba(6, 6, 7, 0.82);
+    --bg-card-strong: rgba(10, 10, 11, 0.94);
     --border-color: rgba(148, 163, 184, 0.25);
     --text-main: #f8fafc;
     --text-muted: #94a3b8;
-    --blue: #3b82f6;
-    --blue-strong: #1d4ed8;
-    --blue-soft: #60a5fa;
+    --blue: #2563eb;
+    --blue-strong: #1e40af;
+    --blue-soft: #38bdf8;
     --danger: #f87171;
     --success: #34d399;
     --radius-lg: 24px;
@@ -52,13 +52,13 @@ body.site-body::after {
 body.site-body::before {
     top: -90px;
     left: -60px;
-    background: rgba(37, 99, 235, 0.26);
+    background: rgba(37, 99, 235, 0.16);
 }
 
 body.site-body::after {
     bottom: -120px;
     right: -90px;
-    background: rgba(71, 85, 105, 0.28);
+    background: rgba(40, 40, 45, 0.32);
 }
 
 .ambient {
@@ -69,7 +69,7 @@ body.site-body::after {
     filter: blur(72px);
     pointer-events: none;
     z-index: 0;
-    background: rgba(30, 64, 175, 0.3);
+    background: rgba(37, 99, 235, 0.2);
 }
 
 .ambient.one {
@@ -80,7 +80,7 @@ body.site-body::after {
 .ambient.two {
     bottom: 12%;
     left: 6%;
-    background: rgba(71, 85, 105, 0.28);
+    background: rgba(22, 22, 24, 0.42);
 }
 
 .auth-wrapper {
@@ -94,7 +94,7 @@ body.site-body::after {
 
 .auth-card {
     width: min(100%, 460px);
-    background: linear-gradient(155deg, rgba(30, 41, 59, 0.62), rgba(15, 23, 42, 0.78));
+    background: linear-gradient(155deg, rgba(12, 12, 14, 0.9), rgba(6, 6, 8, 0.88));
     border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
     backdrop-filter: blur(16px);
@@ -206,13 +206,13 @@ select:focus {
     background: linear-gradient(145deg, #2563eb, #1d4ed8);
     color: #f8fafc;
     padding: 13px 16px;
-    box-shadow: 0 12px 24px rgba(37, 99, 235, 0.28);
+    box-shadow: 0 12px 24px rgba(37, 99, 235, 0.2);
 }
 
 .btn-submit:hover,
 .btn-primary:hover {
     transform: translateY(-1px);
-    box-shadow: 0 16px 30px rgba(37, 99, 235, 0.34);
+    box-shadow: 0 16px 30px rgba(37, 99, 235, 0.25);
 }
 
 .btn-primary:disabled,
@@ -224,7 +224,7 @@ select:focus {
 .btn-secondary {
     width: 100%;
     border: 1px solid rgba(148, 163, 184, 0.28);
-    background: rgba(15, 23, 42, 0.78);
+    background: rgba(10, 10, 12, 0.9);
     color: #dbeafe;
     padding: 12px;
 }
@@ -260,7 +260,7 @@ select:focus {
     padding: 14px 16px;
     border-radius: 12px;
     border: 1px solid rgba(148, 163, 184, 0.4);
-    background: rgba(15, 23, 42, 0.9);
+    background: rgba(8, 8, 10, 0.92);
     color: var(--text-main);
     box-shadow: var(--shadow-xl);
     backdrop-filter: blur(10px);
@@ -291,7 +291,7 @@ select:focus {
 }
 
 .sidebar {
-    background: rgba(2, 6, 23, 0.72);
+    background: rgba(5, 5, 7, 0.88);
     border-right: 1px solid var(--border-color);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
@@ -326,7 +326,7 @@ select:focus {
     gap: 10px;
     color: #dbeafe;
     text-decoration: none;
-    background: rgba(15, 23, 42, 0.45);
+    background: rgba(12, 12, 14, 0.82);
     border: 1px solid rgba(71, 85, 105, 0.32);
     border-radius: 12px;
     padding: 11px 12px;
@@ -354,7 +354,7 @@ select:focus {
     gap: 12px;
     padding: 18px 22px;
     border-bottom: 1px solid var(--border-color);
-    background: rgba(2, 6, 23, 0.45);
+    background: rgba(7, 7, 9, 0.8);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 }
@@ -432,7 +432,7 @@ select:focus {
     height: 9px;
     border-radius: 999px;
     overflow: hidden;
-    background: rgba(15, 23, 42, 0.95);
+    background: rgba(4, 4, 5, 0.95);
     border: 1px solid rgba(148, 163, 184, 0.22);
 }
 
@@ -445,7 +445,7 @@ select:focus {
 
 .promo-box {
     border: 1px dashed rgba(249, 115, 22, 0.55);
-    background: rgba(249, 115, 22, 0.08);
+    background: rgba(249, 115, 22, 0.06);
     border-radius: 12px;
     padding: 12px;
     margin-bottom: 14px;
@@ -472,7 +472,7 @@ select:focus {
     border: 1px dashed rgba(56, 189, 248, 0.5);
     border-radius: 12px;
     padding: 14px;
-    background: rgba(15, 23, 42, 0.45);
+    background: rgba(9, 9, 11, 0.86);
     text-align: center;
 }
 
@@ -519,7 +519,7 @@ select:focus {
     width: min(92vw, 360px);
     border-radius: 18px;
     border: 1px solid rgba(34, 197, 94, 0.36);
-    background: rgba(15, 23, 42, 0.92);
+    background: rgba(8, 8, 10, 0.95);
     text-align: center;
     padding: 24px 20px;
     box-shadow: var(--shadow-xl);
