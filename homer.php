@@ -313,7 +313,7 @@ if (isset($link_indicacao) && !empty($link_indicacao)) {
                     Feito por
                     <a class="footer-creator-hint" href="https://discord.gg/3XAsBetXE" target="_blank" rel="noopener noreferrer">
                         <span class="neon-dasorte">DASORTE</span>
-                        <i class="fas fa-up-right-from-square" aria-hidden="true"></i>
+                        <i class="fa-brands fa-discord" aria-hidden="true"></i>
                     </a>
                 </p>
             </footer>
