@@ -112,7 +112,24 @@ if (!empty($stringDadosGrafico)) {
         .brand img{width:34px;height:34px;object-fit:contain}
         .sb-menu{padding:12px 0;overflow:auto;flex:1}
         .tab-link{display:flex;align-items:center;gap:10px;padding:12px 16px;color:#cbd5e1;text-decoration:none;font-weight:600;font-size:13px;border-right:3px solid transparent}
+        .tab-link i{
+            width: 24px;
+            height: 24px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            background: rgba(148, 163, 184, 0.12);
+            color: #cbd5e1;
+            transition: background .2s ease, color .2s ease, box-shadow .2s ease;
+        }
         .tab-link:hover,.tab-link.active{background:#1d4ed833;color:var(--blue);border-right-color:var(--blue)}
+        .tab-link:hover i,
+        .tab-link.active i{
+            background: rgba(56, 189, 248, 0.18);
+            color: var(--blue);
+            box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.28) inset;
+        }
         .sb-foot{padding:14px;border-top:1px solid var(--line)}
         .btn-back{display:flex;justify-content:center;gap:8px;border:1px solid var(--line);border-radius:10px;padding:11px;color:#fff;text-decoration:none;font-size:13px;font-weight:600}
         .main{flex:1;display:flex;flex-direction:column;min-width:0}
