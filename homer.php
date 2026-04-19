@@ -307,7 +307,14 @@ if (isset($link_indicacao) && !empty($link_indicacao)) {
                 </section>
             </main>
 
-            <footer class="footer">Nuvem Cloud • Modern Minimal Panel • 2026</footer>
+            <footer class="footer">
+                <span class="footer-signature">
+                    FEITO POR
+                    <a class="neon-link" href="https://discord.gg/3XAsBetXE" target="_blank" rel="noopener noreferrer">
+                        DASORTE <i class="fas fa-up-right-from-square hint-icon" aria-hidden="true"></i>
+                    </a>
+                </span>
+            </footer>
         </section>
     </div>
 
