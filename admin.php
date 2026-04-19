@@ -143,6 +143,23 @@ if (!empty($stringDadosGrafico)) {
         .wait{background:#f59e0b22;color:#fbbf24;border:1px solid #f59e0b55}
         .btn{display:inline-flex;align-items:center;gap:7px;padding:8px 12px;border-radius:8px;border:1px solid var(--line);background:#0f172a;color:#fff;font-size:12px;font-weight:600;cursor:pointer}
         .btn.main{background:linear-gradient(135deg,var(--blue2),#1e40af);border:none}
+        .btn.refresh{
+            background: rgba(15, 23, 42, 0.45);
+            border: 1px solid var(--line);
+            color: #e2e8f0;
+            box-shadow: none;
+            padding: 8px 12px;
+            border-radius: 8px;
+        }
+        .btn.refresh i{
+            opacity: 0.85;
+            font-size: 12px;
+        }
+        .btn.refresh:hover{
+            background: rgba(30, 41, 59, 0.6);
+            border-color: rgba(148, 163, 184, 0.55);
+            transform: none;
+        }
         .btn.green{background:#10b98122;border-color:#10b98166;color:#86efac}
         .tab-content{display:none;animation:fade .25s ease}
         .tab-content.active{display:block}
@@ -179,7 +196,7 @@ if (!empty($stringDadosGrafico)) {
                 <button class="menu-toggle" onclick="toggleAdminMenu()"><i class="fas fa-bars"></i></button>
                 <strong id="titulo-topo">Visão Geral</strong>
             </div>
-            <button class="btn main" onclick="atualizarEstatisticasGlobais()"><i class="fas fa-sync-alt"></i> Atualizar Dados</button>
+            <button class="btn refresh" onclick="atualizarEstatisticasGlobais()"><i class="fas fa-sync-alt"></i> Atualizar Dados</button>
         </header>
 
         <main class="content">
