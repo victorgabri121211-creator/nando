@@ -296,6 +296,8 @@ select:focus {
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     padding: 20px 14px;
+    display: flex;
+    flex-direction: column;
 }
 
 .sidebar-brand {
@@ -315,8 +317,10 @@ select:focus {
 }
 
 .nav-links {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 8px;
+    flex: 1;
 }
 
 .nav-links a,
@@ -332,6 +336,10 @@ select:focus {
     padding: 11px 12px;
     font-size: 14px;
     transition: 0.2s ease;
+}
+
+.logout-link {
+    margin-top: auto;
 }
 
 .nav-links a:hover,

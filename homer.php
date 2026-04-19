@@ -83,25 +83,28 @@ $bonusAfiliadoMensagens = isset($bonus_afiliado_mensagens) ? (int)$bonus_afiliad
             </div>
 
             <nav class="nav-links">
-                <a href="#" class="tab-link active" data-tab="aba-dashboard" data-title="Dashboard" onclick="mudarAba(event, 'aba-dashboard')">
-                    <i class="fas fa-chart-line"></i> Dashboard
-                </a>
-                <a href="#" class="tab-link" data-tab="aba-notificacoes" data-title="Notificações" onclick="mudarAba(event, 'aba-notificacoes')">
-                    <i class="fas fa-bell"></i> Notificações
-                </a>
-                <a href="#" class="tab-link" data-tab="aba-afiliados" data-title="Afiliados" onclick="mudarAba(event, 'aba-afiliados')">
-                    <i class="fas fa-user-group"></i> Afiliados
-                </a>
-                <a href="#" class="tab-link" data-tab="aba-disparo" data-title="Disparo" onclick="mudarAba(event, 'aba-disparo')">
-                    <i class="fas fa-paper-plane"></i> Novo Disparo
-                </a>
-                <a href="#" class="tab-link" data-tab="aba-historico" data-title="Histórico" onclick="mudarAba(event, 'aba-historico')">
-                    <i class="fas fa-clock-rotate-left"></i> Histórico
-                </a>
-                <a href="#" class="tab-link" data-tab="aba-loja" data-title="Loja" onclick="mudarAba(event, 'aba-loja')">
-                    <i class="fas fa-store"></i> Loja / PIX
-                </a>
-                <a href="/logout">
+                <div class="nav-links-main">
+                    <a href="#" class="tab-link active" data-tab="aba-dashboard" data-title="Dashboard" onclick="mudarAba(event, 'aba-dashboard')">
+                        <i class="fas fa-chart-line"></i> Dashboard
+                    </a>
+                    <a href="#" class="tab-link" data-tab="aba-notificacoes" data-title="Notificações" onclick="mudarAba(event, 'aba-notificacoes')">
+                        <i class="fas fa-bell"></i> Notificações
+                    </a>
+                    <a href="#" class="tab-link" data-tab="aba-afiliados" data-title="Afiliados" onclick="mudarAba(event, 'aba-afiliados')">
+                        <i class="fas fa-user-group"></i> Afiliados
+                    </a>
+                    <a href="#" class="tab-link" data-tab="aba-disparo" data-title="Disparo" onclick="mudarAba(event, 'aba-disparo')">
+                        <i class="fas fa-paper-plane"></i> Novo Disparo
+                    </a>
+                    <a href="#" class="tab-link" data-tab="aba-historico" data-title="Histórico" onclick="mudarAba(event, 'aba-historico')">
+                        <i class="fas fa-clock-rotate-left"></i> Histórico
+                    </a>
+                    <a href="#" class="tab-link" data-tab="aba-loja" data-title="Loja" onclick="mudarAba(event, 'aba-loja')">
+                        <i class="fas fa-store"></i> Loja / PIX
+                    </a>
+                </div>
+
+                <a href="/logout" class="logout-link">
                     <i class="fas fa-right-from-bracket"></i> Sair
                 </a>
             </nav>
