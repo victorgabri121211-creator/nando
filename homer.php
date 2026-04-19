@@ -30,6 +30,23 @@ $linkIndicacao = $esquema . '://' . $host . '/registrar?ref=' . urlencode($usuar
 if (isset($link_indicacao) && !empty($link_indicacao)) {
     $linkIndicacao = $link_indicacao;
 }
+
+$afiliadosIndicados = 0;
+if (isset($afiliados_indicados)) {
+    $afiliadosIndicados = (int)$afiliados_indicados;
+} elseif (isset($total_indicados)) {
+    $afiliadosIndicados = (int)$total_indicados;
+}
+
+$depositosIndicados = 0.0;
+if (isset($depositos_indicados)) {
+    $depositosIndicados = (float)$depositos_indicados;
+} elseif (isset($total_depositos_indicados)) {
+    $depositosIndicados = (float)$total_depositos_indicados;
+}
+
+$bonusAfiliadoSaldo = isset($bonus_afiliado_saldo) ? (float)$bonus_afiliado_saldo : ($depositosIndicados * 0.25);
+$bonusAfiliadoMensagens = isset($bonus_afiliado_mensagens) ? (int)$bonus_afiliado_mensagens : (int)floor($bonusAfiliadoSaldo / 0.02);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -68,6 +85,9 @@ if (isset($link_indicacao) && !empty($link_indicacao)) {
             <nav class="nav-links">
                 <a href="#" class="tab-link active" data-tab="aba-dashboard" data-title="Dashboard" onclick="mudarAba(event, 'aba-dashboard')">
                     <i class="fas fa-chart-line"></i> Dashboard
+                </a>
+                <a href="#" class="tab-link" data-tab="aba-afiliados" data-title="Afiliados" onclick="mudarAba(event, 'aba-afiliados')">
+                    <i class="fas fa-user-group"></i> Afiliados
                 </a>
                 <a href="#" class="tab-link" data-tab="aba-disparo" data-title="Disparo" onclick="mudarAba(event, 'aba-disparo')">
                     <i class="fas fa-paper-plane"></i> Novo Disparo
@@ -114,12 +134,28 @@ if (isset($link_indicacao) && !empty($link_indicacao)) {
 
                     <div class="main-grid">
                         <article class="form-card">
-                            <h3 style="margin: 0 0 12px;">Seu link de indicação</h3>
-                            <p class="u-muted" style="margin-bottom: 12px;">Compartilhe e acompanhe novos cadastros com seu código.</p>
-                            <input id="link-indicacao" type="text" class="input-dark" readonly value="<?php echo htmlspecialchars($linkIndicacao); ?>">
-                            <button class="btn-primary" onclick="copiarLinkAfiliado()" style="margin-top: 12px;">
-                                <i class="fas fa-copy"></i> Copiar Link
-                            </button>
+                            <h3 style="margin: 0 0 12px;">Visão geral da conta</h3>
+                            <p class="u-muted" style="margin-bottom: 12px;">Resumo rápido para acompanhar saúde e capacidade do painel.</p>
+                            <div style="display: grid; gap: 10px;">
+                                <div class="glass-card">
+                                    <div class="u-flex" style="justify-content: space-between;">
+                                        <span class="u-muted">Saldo disponível</span>
+                                        <strong>R$ <?php echo number_format($saldoAtual, 2, ',', '.'); ?></strong>
+                                    </div>
+                                </div>
+                                <div class="glass-card">
+                                    <div class="u-flex" style="justify-content: space-between;">
+                                        <span class="u-muted">Mensagens prontas para disparo</span>
+                                        <strong><?php echo number_format($enviosDisponiveis, 0, ',', '.'); ?></strong>
+                                    </div>
+                                </div>
+                                <div class="glass-card">
+                                    <div class="u-flex" style="justify-content: space-between;">
+                                        <span class="u-muted">Campanhas no histórico</span>
+                                        <strong><?php echo number_format(count($campanhas), 0, ',', '.'); ?></strong>
+                                    </div>
+                                </div>
+                            </div>
                         </article>
 
                         <article class="form-card">
@@ -139,6 +175,65 @@ if (isset($link_indicacao) && !empty($link_indicacao)) {
                                     <p class="stat-value" id="display-bots">0</p>
                                 </div>
                             </div>
+                        </article>
+                    </div>
+                </section>
+
+                <section id="aba-afiliados" class="tab-content">
+                    <div class="cards-grid">
+                        <article class="stat-card">
+                            <p class="stat-title">Indicados</p>
+                            <p class="stat-value"><?php echo number_format($afiliadosIndicados, 0, ',', '.'); ?></p>
+                        </article>
+                        <article class="stat-card">
+                            <p class="stat-title">Depósitos dos indicados</p>
+                            <p class="stat-value">R$ <?php echo number_format($depositosIndicados, 2, ',', '.'); ?></p>
+                        </article>
+                        <article class="stat-card">
+                            <p class="stat-title">Bônus em saldo (25%)</p>
+                            <p class="stat-value">R$ <?php echo number_format($bonusAfiliadoSaldo, 2, ',', '.'); ?></p>
+                        </article>
+                        <article class="stat-card">
+                            <p class="stat-title">Bônus convertido em envios</p>
+                            <p class="stat-value"><?php echo number_format($bonusAfiliadoMensagens, 0, ',', '.'); ?></p>
+                        </article>
+                    </div>
+
+                    <div class="main-grid">
+                        <article class="form-card">
+                            <h3 style="margin: 0 0 12px;">Link de indicação</h3>
+                            <p class="u-muted" style="margin-bottom: 12px;">Compartilhe seu link para cadastrar novos usuários sob sua referência.</p>
+                            <input id="link-indicacao" type="text" class="input-dark" readonly value="<?php echo htmlspecialchars($linkIndicacao); ?>">
+                            <button class="btn-primary" onclick="copiarLinkAfiliado()" style="margin-top: 12px;">
+                                <i class="fas fa-copy"></i> Copiar Link
+                            </button>
+                        </article>
+
+                        <article class="form-card">
+                            <h3 style="margin: 0 0 12px;">Regra de bonificação</h3>
+                            <p class="u-muted" style="margin-bottom: 12px;">
+                                Cada depósito confirmado de um indicado gera <strong style="color:#93c5fd;">25% de retorno</strong> para você.
+                                Esse retorno entra como saldo de afiliado e é convertido em mensagens para disparo.
+                            </p>
+
+                            <div class="glass-card" style="margin-bottom: 12px;">
+                                <div class="u-flex" style="justify-content: space-between; margin-bottom: 8px;">
+                                    <span class="u-muted">Depósito do indicado</span>
+                                    <input id="simulador-deposito-indicado" type="number" class="input-dark" value="100" min="0" step="0.01" oninput="calcularSimuladorAfiliado()" style="max-width: 160px;">
+                                </div>
+                                <div class="u-flex" style="justify-content: space-between; border-top: 1px solid var(--border-color); padding-top: 8px; margin-top: 8px;">
+                                    <span class="u-muted">Seu bônus (25%)</span>
+                                    <strong id="sim-afiliado-saldo">R$ 25,00</strong>
+                                </div>
+                                <div class="u-flex" style="justify-content: space-between; border-top: 1px solid var(--border-color); padding-top: 8px; margin-top: 8px;">
+                                    <span class="u-muted">Mensagens recebidas</span>
+                                    <strong id="sim-afiliado-envios" style="color:#60a5fa;">1250 envios</strong>
+                                </div>
+                            </div>
+
+                            <p class="u-muted" style="font-size: 12px;">
+                                Conversão usada no simulador: R$ 0,02 por mensagem.
+                            </p>
                         </article>
                     </div>
                 </section>
@@ -325,6 +420,7 @@ if (isset($link_indicacao) && !empty($link_indicacao)) {
         let loopPix;
         const titulosAba = {
             'aba-dashboard': 'Dashboard',
+            'aba-afiliados': 'Afiliados',
             'aba-disparo': 'Novo Disparo',
             'aba-historico': 'Histórico',
             'aba-loja': 'Loja / PIX'
@@ -389,6 +485,7 @@ if (isset($link_indicacao) && !empty($link_indicacao)) {
             mudarAba(null, abaSalva);
             calcularCheckout();
             calcularCompra();
+            calcularSimuladorAfiliado();
             buscarStatsNuvem();
             <?php if(isset($erro) && !empty($erro)): ?>
                 mostrarNotificacao(<?php echo json_encode($erro); ?>, 'erro');
@@ -403,6 +500,23 @@ if (isset($link_indicacao) && !empty($link_indicacao)) {
             campo.select();
             document.execCommand('copy');
             mostrarNotificacao('Link de afiliado copiado!');
+        }
+
+        function calcularSimuladorAfiliado() {
+            const input = document.getElementById('simulador-deposito-indicado');
+            const saidaSaldo = document.getElementById('sim-afiliado-saldo');
+            const saidaEnvios = document.getElementById('sim-afiliado-envios');
+
+            if (!input || !saidaSaldo || !saidaEnvios) {
+                return;
+            }
+
+            const deposito = parseFloat(input.value) || 0;
+            const bonusSaldo = deposito * 0.25;
+            const bonusEnvios = Math.floor(bonusSaldo / 0.02);
+
+            saidaSaldo.innerText = 'R$ ' + bonusSaldo.toFixed(2).replace('.', ',');
+            saidaEnvios.innerText = bonusEnvios.toLocaleString('pt-BR') + ' envios';
         }
 
         function previewImagem(input) {
