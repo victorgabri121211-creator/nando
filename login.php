@@ -27,7 +27,7 @@
     <div class="auth-wrapper">
         <div class="auth-card">
             <div class="brand">
-                <img src="/assets/logo.jpg" class="brand-logo" alt="Nuvem Cloud">
+                <img src="/assets/logo.png" class="brand-logo" alt="Nuvem Cloud">
                 <h1>Nuvem Cloud</h1>
                 <p>Acesso rápido ao seu painel moderno de campanhas.</p>
             </div>
